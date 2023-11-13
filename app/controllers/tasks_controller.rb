@@ -14,7 +14,6 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.create(task_params)
-    puts params.inspect
     redirect_to list_path(@task)
   end
 
@@ -35,7 +34,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :details)
+    params.require(:task).permit(:title, :details, :completed)
   end
 
   def set_task
