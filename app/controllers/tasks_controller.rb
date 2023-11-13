@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :new, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
     @tasks = Task.all
@@ -14,6 +14,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.create(task_params)
+    puts params.inspect
     redirect_to list_path(@task)
   end
 
